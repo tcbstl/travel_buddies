@@ -17,15 +17,20 @@ public class HomeController implements WebMvcConfigurer {
 //            return "home";
 //        }
 
+    private static List<String> destinations = new ArrayList<>();
+
     //Attempting to add list of destinations
     @GetMapping
     public String homepage(Model model) {
-        List<String> destinations = new ArrayList<>();
-        destinations.add("Paris");
-        destinations.add("St. Louis");
-        destinations.add("Africa");
         model.addAttribute("destinations", destinations);
         return "home";
+    }
+
+    @PostMapping("home")
+    public String addDestinationForm(@RequestParam String destination) {
+        destinations.add(destination);
+//        return "home";
+        return "redirect:";
     }
 
 
