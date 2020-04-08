@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 <head>
     <title>Travel Buddies - Find Your Travel Buddy</title>
 </head>
+<h2>
+    <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i>
+    <i>Travel Buddies</i>
+    <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i></h2>
 
 <h1>Hey There, Traveler!</h1>
 
@@ -21,5 +26,10 @@
 </form>
 
 <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
 </body>
 </html>
