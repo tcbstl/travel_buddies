@@ -13,26 +13,34 @@ public class Destination {
     private int id;
 
 //    private static int nextId = 1;
+//    private String destination;
+    private String name;
 
-    private String destination;
-
-    public Destination(String destination) {
-        this.destination = destination;
+    public Destination(String name) {
+//        this();
+        this.name = name;
 //        this.id = nextId;
 //        nextId++;
     }
 
     public Destination() {}
 
-    public String getDestination() {
-        return destination;
+//    public String getDestination() {
+//        return destination;
+//    }
+//
+//    public void setDestination(String destination) {
+//        this.destination = destination;
+//    }
+
+
+    public String getName() {
+        return name;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setName(String name) {
+        this.name = name;
     }
-
-
 
     public int getId() {
         return id;
@@ -40,7 +48,7 @@ public class Destination {
 
     @Override
     public String toString() {
-        return destination;
+        return name;
     }
 
     @Override
