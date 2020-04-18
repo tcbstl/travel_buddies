@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
 //                .antMatchers("/", "/home").permitAll()
-//                .antMatchers("/").permitAll()
+//                .antMatchers("/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -29,6 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
+
     }
 
     @Bean
