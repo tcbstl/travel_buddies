@@ -1,6 +1,5 @@
 package com.tommybalestreri.hellospring.data;
 
-//import com.sun.security.auth.UserPrincipal;
 import com.tommybalestreri.hellospring.models.UserPrincipal;
 import com.tommybalestreri.hellospring.models.User;
 import org.springframework.beans.factory.annotation.Autowired;

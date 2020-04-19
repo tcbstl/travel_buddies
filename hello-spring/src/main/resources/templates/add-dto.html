@@ -6,13 +6,8 @@
 </head>
 <body>
 
-<!--<p>-->
-<!--    UserId: <a th:href="@{'/add-dto/?userId=' + ${user.id}}" th:text="${user.id}"></a>-->
-<!--</p>-->
-
 <form method="post">
     <div class="form-group">
-<!--        <input type="hidden" th:field="${userDestination.user}">-->
         <input type="hidden" th:field="${userDestination.user}">
         <select th:field="${userDestination.destination}">
             <option th:each="destination : ${destinationList}"

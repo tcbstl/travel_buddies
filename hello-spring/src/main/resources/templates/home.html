@@ -14,14 +14,12 @@
 <h2>My Travel Wishlist:</h2>
 <ul>
     <th:block th:each="destination : ${destinations}">
-<!--        <li th:text="${destination}"></li>-->
         <li th:text="${destination.name}"></li>
     </th:block>
 </ul>
 
 <ul>
     <th:block th:each="user : ${users}">
-        <!--        <li th:text="${destination}"></li>-->
         <li th:text="${user.id}"></li>
     </th:block>
 </ul>
@@ -43,19 +41,9 @@
     </tr>
 </table>
 
-<!--<a th:href="'/add-dto?userId=' + ${user.id}">Add A Connected Destination</a>-->
-
-
-<!--<p>-->
-<!--    UserId: <a th:href="@{'/?userId=' + ${user.id}}" th:text="${user.id}"></a>-->
-<!--</p>-->
-
-<!--<h3 th:text = "${user.id}"></h3>-->
-
 <h3> Where would you like to travel?</h3>
 <form method="post" action="home">
-<!--    <label for="destination">Add A New Desired Destination:</label>-->
-<!--    <input type="text" id="destination" name="destination"><br><br>-->
+
     <label>Add A Desired Destination</label>
     <input th:field="${destination.name}">
     <input type="submit" value="Submit">

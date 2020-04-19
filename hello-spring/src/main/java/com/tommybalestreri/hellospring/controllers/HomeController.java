@@ -28,6 +28,10 @@ public class HomeController implements WebMvcConfigurer {
 //    private static List<String> destinations = new ArrayList<>();
 //    private static List<Destination> destinations = new ArrayList<>();
 
+//    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//    User user = (User)authentication.getPrincipal();
+//    int userId = user.getId();
+
     @GetMapping
     public String homepage(@RequestParam Integer userId, Model model) {
         Optional<User> result = userRepository.findById(userId);
@@ -39,15 +43,38 @@ public class HomeController implements WebMvcConfigurer {
         model.addAttribute("destinationList", user.getDestinationList());
         model.addAttribute(new Destination());
         return "home";
+//        return "home?userId=" + user.getId();
     }
+
+//    @GetMapping
+//    public String homepage(Model model) {
+////        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+////        User.getPrincipal();
+////        userRepository.findAll();
+////        UserPrincipal user1 = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+////        Integer userId = UserPrincipal.getId();
+////        String userpassword = UserPrincipal.get
+////        Optional<User> result = userRepository.findByUsername(UserPrincipal.getUsername());
+////        User user = result.get();
+////        model.addAttribute("destinations", DestinationData.getAll());
+////        model.addAttribute("destinations", destinationRepository.findAll());
+//        model.addAttribute("destinations", destinationRepository.findAll());
+//        model.addAttribute("users", userRepository.findAll());
+//        model.addAttribute("destinationList", user.getDestinationList());
+//        model.addAttribute(new Destination());
+////        return "home";
+//        return "home?userId=" + user.getId();
+//    }
 
     @PostMapping("home")
     public String addDestinationForm(@ModelAttribute Destination newDestination) {
+//        User user = userDestination.getUser();
 //        public String addDestinationForm(@RequestParam String destination) {
 //        DestinationData.add(new Destination(destination));
 //        DestinationData.add(newDestination);
         destinationRepository.save(newDestination);
         return "redirect:";
+//        return "redirect:home?userId=" + user.getId();
     }
 
 //    @GetMapping("detail")
@@ -129,6 +156,8 @@ public class HomeController implements WebMvcConfigurer {
 
         return "redirect:add-dto?userId=" + user.getId();
     }
+
+
 
 
 

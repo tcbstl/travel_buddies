@@ -15,30 +15,16 @@ public class Destination {
     @GeneratedValue
     private int id;
 
-//    private static int nextId = 1;
-//    private String destination;
     private String name;
 
     @ManyToMany(mappedBy = "destinationList")
     private final List<User> userList = new ArrayList<>();
 
     public Destination(String name) {
-//        this();
         this.name = name;
-//        this.id = nextId;
-//        nextId++;
     }
 
     public Destination() {}
-
-//    public String getDestination() {
-//        return destination;
-//    }
-//
-//    public void setDestination(String destination) {
-//        this.destination = destination;
-//    }
-
 
     public List<User> getUserList() {
         return userList;
