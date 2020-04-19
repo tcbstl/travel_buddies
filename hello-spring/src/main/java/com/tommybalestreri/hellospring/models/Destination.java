@@ -3,6 +3,9 @@ package com.tommybalestreri.hellospring.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +18,9 @@ public class Destination {
 //    private static int nextId = 1;
 //    private String destination;
     private String name;
+
+    @ManyToMany(mappedBy = "destinationList")
+    private final List<User> userList = new ArrayList<>();
 
     public Destination(String name) {
 //        this();
@@ -33,6 +39,10 @@ public class Destination {
 //        this.destination = destination;
 //    }
 
+
+    public List<User> getUserList() {
+        return userList;
+    }
 
     public String getName() {
         return name;

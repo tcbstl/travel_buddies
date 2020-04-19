@@ -1,12 +1,12 @@
 package com.tommybalestreri.hellospring.models;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,11 +19,22 @@ public class User {
     private String username;
     private String password;
 
+    @ManyToMany
+    private final List<Destination> destinationList = new ArrayList<>();
+
     public String getUsername() {
         return username;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public List<Destination> getDestinationList() {
+        return destinationList;
+    }
+
+    public void addDestination(Destination destination){
+        this.destinationList.add(destination);
     }
 }
