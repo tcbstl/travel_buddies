@@ -29,8 +29,8 @@ public class HomeController implements WebMvcConfigurer {
     public String homepage(@RequestParam Integer userId, Model model) {
         Optional<User> result = userRepository.findById(userId);
         User user = result.get();
-        model.addAttribute("destinations", destinationRepository.findAll());
-        model.addAttribute("users", userRepository.findAll());
+//        model.addAttribute("destinations", destinationRepository.findAll());
+//        model.addAttribute("users", userRepository.findAll());
         model.addAttribute("destinationList", user.getDestinationList());
         model.addAttribute(new Destination());
         return "home";
