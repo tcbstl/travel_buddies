@@ -25,112 +25,43 @@ public class HomeController implements WebMvcConfigurer {
         @Autowired
         private UserRepository userRepository;
 
-//    private static List<String> destinations = new ArrayList<>();
-//    private static List<Destination> destinations = new ArrayList<>();
-
-//    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//    User user = (User)authentication.getPrincipal();
-//    int userId = user.getId();
-
     @GetMapping
     public String homepage(@RequestParam Integer userId, Model model) {
         Optional<User> result = userRepository.findById(userId);
         User user = result.get();
-//        model.addAttribute("destinations", DestinationData.getAll());
-//        model.addAttribute("destinations", destinationRepository.findAll());
         model.addAttribute("destinations", destinationRepository.findAll());
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("destinationList", user.getDestinationList());
         model.addAttribute(new Destination());
         return "home";
-//        return "home?userId=" + user.getId();
     }
 
-//    @GetMapping
-//    public String homepage(Model model) {
-////        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-////        User.getPrincipal();
-////        userRepository.findAll();
-////        UserPrincipal user1 = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-////        Integer userId = UserPrincipal.getId();
-////        String userpassword = UserPrincipal.get
-////        Optional<User> result = userRepository.findByUsername(UserPrincipal.getUsername());
-////        User user = result.get();
-////        model.addAttribute("destinations", DestinationData.getAll());
-////        model.addAttribute("destinations", destinationRepository.findAll());
-//        model.addAttribute("destinations", destinationRepository.findAll());
-//        model.addAttribute("users", userRepository.findAll());
-//        model.addAttribute("destinationList", user.getDestinationList());
-//        model.addAttribute(new Destination());
-////        return "home";
-//        return "home?userId=" + user.getId();
-//    }
 
     @PostMapping("home")
     public String addDestinationForm(@ModelAttribute Destination newDestination) {
-//        User user = userDestination.getUser();
-//        public String addDestinationForm(@RequestParam String destination) {
-//        DestinationData.add(new Destination(destination));
-//        DestinationData.add(newDestination);
         destinationRepository.save(newDestination);
         return "redirect:";
-//        return "redirect:home?userId=" + user.getId();
     }
-
-//    @GetMapping("detail")
-//    public String displayUserDetails(@RequestParam Integer userId, Model model){
-//        Optional<User> result = userRepository.findById(userId);
-//
-//        if (result.isEmpty()) {
-//            model.addAttribute("title", "Invalid User Id: " + userId);
-//        } else {
-//            User user = result.get();
-//            model.addAttribute("title", user.getUsername() + " Details");
-//            model.addAttribute("user", user);
-//        }
-//
-//        return "user/detail";
-//    }
-
-
 
     @GetMapping("delete")
     public String displayDeleteDestinationForm(Model model){
         model.addAttribute("title", "Delete Destination");
-//        model.addAttribute("destinations", DestinationData.getAll());
         model.addAttribute("destinations", destinationRepository.findAll());
         return "home/delete";
     }
-
-//    @PostMapping("delete")
-//    public String processDeleteDestinationForm(@RequestParam(required = false) int[] destinationIds){
-//
-//        if (destinationIds != null) {
-//            for (int id : destinationIds) {
-////                DestinationData.remove(id);
-//                destinationRepository.deleteById(id);
-//            }
-//        }
-//
-//        return "redirect:";
-//
-//    }
 
     @PostMapping("delete")
     public String processDeleteUserForm(@RequestParam(required = false) int[] userIds){
 
         if (userIds != null) {
             for (int id : userIds) {
-//                DestinationData.remove(id);
                 userRepository.deleteById(id);
             }
         }
 
         return "redirect:";
-
     }
 
-    // responds to home/add-dto?userId=X
     @GetMapping("add-dto")
     public String displayAddDestinationAndUserForm(@RequestParam Integer userId, Model model) {
         Optional<User> result = userRepository.findById(userId);
@@ -138,8 +69,6 @@ public class HomeController implements WebMvcConfigurer {
         model.addAttribute("title", "Add DTO " + user.getUsername());
         model.addAttribute("destinationList", destinationRepository.findAll());
         model.addAttribute("user", user);
-//        model.addAttribute("userDestination", new UserDestinationDTO());
-
         UserDestinationDTO userDestination = new UserDestinationDTO();
         userDestination.setUser(user);
         model.addAttribute("userDestination", userDestination);
@@ -156,9 +85,6 @@ public class HomeController implements WebMvcConfigurer {
 
         return "redirect:add-dto?userId=" + user.getId();
     }
-
-
-
 
 
 
