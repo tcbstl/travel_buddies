@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Add DTO</title>
+</head>
+<body>
+
+<!--<p>-->
+<!--    UserId: <a th:href="@{'/add-dto/?userId=' + ${user.id}}" th:text="${user.id}"></a>-->
+<!--</p>-->
+
+<form method="post">
+    <div class="form-group">
+<!--        <input type="hidden" th:field="${userDestination.user}">-->
+        <input type="hidden" th:field="${userDestination.user}">
+        <select th:field="${userDestination.destination}">
+            <option th:each="destination : ${destinationList}"
+                    th:value="${destination.id}"
+                    th:text="${destination.name}"
+            ></option>
+        </select>
+    </div>
+    <input type="submit" class="btn btn-success" value="Add DTO">
+</form>
+
+</body>
+</html>

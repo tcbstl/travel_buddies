@@ -19,6 +19,39 @@
     </th:block>
 </ul>
 
+<ul>
+    <th:block th:each="user : ${users}">
+        <!--        <li th:text="${destination}"></li>-->
+        <li th:text="${user.id}"></li>
+    </th:block>
+</ul>
+
+<table>
+    <thead>
+    <tr>
+        <th>Usernames</th>
+    </tr>
+    </thead>
+    <tr th:each="user : ${users}">
+        <td><a th:href="'home?userId=' + ${user.id}" th:text="${user.username}"></a></td>
+    </tr>
+    <tr>
+        <th>User Destinations</th>
+        <td>
+            <span th:each="destination : ${destinationList}" th:text="${destination.name}"></span>
+        </td>
+    </tr>
+</table>
+
+<!--<a th:href="'/add-dto?userId=' + ${user.id}">Add A Connected Destination</a>-->
+
+
+<!--<p>-->
+<!--    UserId: <a th:href="@{'/?userId=' + ${user.id}}" th:text="${user.id}"></a>-->
+<!--</p>-->
+
+<!--<h3 th:text = "${user.id}"></h3>-->
+
 <h3> Where would you like to travel?</h3>
 <form method="post" action="home">
 <!--    <label for="destination">Add A New Desired Destination:</label>-->
