@@ -38,6 +38,8 @@
     <input type="submit" value="Submit">
 </form>
 
+<h4>To Confirm Your Added Location - Click Username Below:</h4>
+
 <th:block th:each="user : ${users}">
     <li><a th:href="@{'/add-dto/?userId=' + ${user.id}}" th:text="${user.username}"></li>
 </th:block>
