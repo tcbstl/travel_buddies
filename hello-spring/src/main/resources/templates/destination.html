@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+
+<head>
+    <title>Travel Buddies - Meet Your Travel Buddy </title>
+</head>
+<body>
+<h1>
+    <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i>
+    <i>Welcome To Travel Buddies!</i>
+    <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i></h1>
+
+<h2>LIST OF USERS WITH SAME DESTINATION:</h2>
+<!--<h3>Proceed to functionality:</h3>-->
+
+
+<!--<th:block th:each="user : ${users}">-->
+<!--    <li><a th:href="@{'/?userId=' + ${user.id}}" th:text="${user.username}"></li>-->
+<!--</th:block>-->
+
+<!--<table>-->
+
+<!--    <tr>-->
+
+<!--        <th:block th:each="destination : ${destinationList}">-->
+<!--            <li><a th:href="@{'/?destinationId=' + ${destination.id}}" th:text="${destination.name}"></a></li>-->
+<!--        </th:block>-->
+
+
+<!--    </tr>-->
+<!--</table>-->
+
+<table>
+    <tr>
+        <th:block th:each="user : ${userList}">
+            <li><a th:href="@{'/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>
+        </th:block>
+    </tr>
+</table>
+
+</body>
+</html>
