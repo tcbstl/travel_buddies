@@ -31,11 +31,16 @@
 </table>
 
 <h3> Where would you like to travel?</h3>
-<form method="post" action="home">
+<!--<form th:action="@{/login}" method="post">-->
+<form method="post" th:action="@{/home}">
     <label>Add A Desired Destination</label>
     <input th:field="${destination.name}">
     <input type="submit" value="Submit">
 </form>
+
+<th:block th:each="user : ${users}">
+    <li><a th:href="@{'/add-dto/?userId=' + ${user.id}}" th:text="${user.username}"></li>
+</th:block>
 
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>

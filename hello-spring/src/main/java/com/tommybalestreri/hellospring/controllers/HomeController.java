@@ -33,14 +33,22 @@ public class HomeController implements WebMvcConfigurer {
 //        model.addAttribute("users", userRepository.findAll());
         model.addAttribute("destinationList", user.getDestinationList());
         model.addAttribute(new Destination());
+        model.addAttribute("users",userRepository.findAll());
         return "home";
     }
 
+//This adds the destination but results in a 404 page (due to no userId)
+//    @PostMapping("home")
+//    public String addDestinationForm(@ModelAttribute Destination newDestination) {
+//        destinationRepository.save(newDestination);
+//        return "redirect:";
+//    }
 
     @PostMapping("home")
-    public String addDestinationForm(@ModelAttribute Destination newDestination) {
+    public String addDestinationForm(@ModelAttribute User user, @ModelAttribute Destination newDestination, Model model) {
         destinationRepository.save(newDestination);
-        return "redirect:";
+        model.addAttribute("user", user);
+        return "addeddestination";
     }
 
     @GetMapping("delete")
@@ -83,7 +91,8 @@ public class HomeController implements WebMvcConfigurer {
         user.addDestination(destination);
             userRepository.save(user);
 
-        return "redirect:add-dto?userId=" + user.getId();
+//        return "redirect:add-dto?userId=" + user.getId();
+        return "redirect:?userId=" + user.getId();
     }
 
 
