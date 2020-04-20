@@ -20,22 +20,6 @@ public class DestinationController {
     @Autowired
     private UserRepository userRepository;
 
-//    @GetMapping("destination")
-//    public String processDestinationPage(User user, Model model){
-//        model.addAttribute("users", userRepository.findAll());
-//        return "destination";
-//    }
-
-//    @GetMapping("destination")
-//    public String destinationPage(@RequestParam Integer userId, Model model) {
-//        Optional<User> result = userRepository.findById(userId);
-//        User user = result.get();
-//        model.addAttribute("destinationList", user.getDestinationList());
-//        model.addAttribute(new Destination());
-//        model.addAttribute("users",userRepository.findAll());
-//        return "destination";
-//    }
-
     @GetMapping("destination")
     public String destinationPage(@RequestParam Integer destinationId, Model model) {
         Optional<Destination> result = destinationRepository.findById(destinationId);
@@ -46,12 +30,4 @@ public class DestinationController {
         return "destination";
     }
 
-
-
-
-//    @PostMapping
-//    public String submitSuccessPage(User user, Model model){
-//        model.addAttribute("users", userRepository.findAll());
-//        return "";
-//    }
 }

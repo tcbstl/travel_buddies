@@ -15,9 +15,6 @@
 <h2>DESTINATION ADDED SUCCESSFULLY</h2>
 <h3>Return to home screen:</h3>
 
-<!--<a th:href ="@{'/add-dto/?userId=' + ${user.id}}">Link</a>-->
-<!--<a th:href="home/?userId">Link2</a>-->
-
 <ul>
     <th:block th:each="user : ${users}">
         <li><a th:href="@{'/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>
