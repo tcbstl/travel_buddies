@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns:href="http://www.w3.org/1999/xhtml">
 <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 <head>
     <title>Travel Buddies - Find Your Travel Buddy</title>
@@ -29,6 +30,10 @@
 
     </tr>
 </table>
+<br>
+<!--<th:block th:each="destination : ${destinations}">-->
+    <a href="delete">Click here to delete a destination</a>
+<!--</th:block>-->
 
 <h3> Where would you like to travel?</h3>
 <form method="post" th:action="@{/home}">
@@ -40,7 +45,7 @@
 <h4>To Confirm Your Added Location - Click Username Below:</h4>
 
 <th:block th:each="user : ${users}">
-    <li><a th:href="@{'/add-dto/?userId=' + ${user.id}}" th:text="${user.username}"></li>
+    <li><a th:href="@{'/add-dto/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>
 </th:block>
 
 <form th:action="@{/logout}" method="post">

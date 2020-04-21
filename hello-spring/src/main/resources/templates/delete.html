@@ -8,12 +8,11 @@
 
 <form method = "post">
 
-
         <th:block th:each = "destination : ${destinations}">
             <div class = "form group">
             <label>
-                <span th:text="destination"></span>
                 <input type="checkbox" name="destinationIds" th:value="${destination.id}" class = "form-controller">
+                <span th:text="${destination.name}"></span>
             </label>
             </div>
         </th:block>
