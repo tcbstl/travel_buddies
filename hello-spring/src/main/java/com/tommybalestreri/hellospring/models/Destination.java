@@ -1,5 +1,8 @@
 package com.tommybalestreri.hellospring.models;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +21,7 @@ public class Destination {
     private String name;
 
     @ManyToMany(mappedBy = "destinationList")
+    @Cascade(CascadeType.DELETE)
     private final List<User> userList = new ArrayList<>();
 
     public Destination(String name) {

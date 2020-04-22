@@ -12,14 +12,16 @@
     <i>Welcome To Travel Buddies!</i>
     <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i></h1>
 
-<h2>DESTINATION ADDED SUCCESSFULLY</h2>
-<!--<h3></h3>-->
+<h2>USER DELETED SUCCESSFULLY</h2>
 
-<ul>
-    <th:block th:each="user : ${users}">
-        <li><a th:href="@{'/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>
-    </th:block>
-</ul>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+
+<!--<th:block th:each="user : ${users}">-->
+<!--    <li><a th:href="@{'/?userId=' + ${user.id}}" th:text="${user.username}"></li>-->
+<!--</th:block>-->
 
 </body>
 </html>

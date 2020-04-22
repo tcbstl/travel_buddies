@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
-public class DeleteDestinationController {
+public class DeleteUserController {
 
     @Autowired
     private DestinationRepository destinationRepository;
@@ -25,7 +25,7 @@ public class DeleteDestinationController {
 //    User user = result.get();
 //        model.addAttribute("destinationList", user.getDestinationList());
 
-    @GetMapping("delete")
+    @GetMapping("deleteuser")
     public String displayDeleteEventForm(@RequestParam Integer userId, Model model) {
         model.addAttribute("title", "Delete Destinations");
         model.addAttribute("destinations", destinationRepository.findAll());
@@ -33,10 +33,10 @@ public class DeleteDestinationController {
         User user = result.get();
         model.addAttribute("destinationList", user.getDestinationList());
 //        model.addAttribute("destinations", user.userDes)
-        return "delete";
+        return "deleteuser";
     }
 
-    @PostMapping("delete")
+    @PostMapping("deleteuser")
     public String processDeleteDestinationForm(@RequestParam(required = false) int[] destinationIds) {
 
         if (destinationIds != null) {
@@ -46,7 +46,7 @@ public class DeleteDestinationController {
             }
         }
 
-        return "destinationdeletesuccess";
+        return "userdeletesuccess";
     }
 
 //    @GetMapping("delete")

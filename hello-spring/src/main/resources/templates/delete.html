@@ -8,7 +8,7 @@
 
 <form method = "post">
 
-        <th:block th:each = "destination : ${destinations}">
+        <th:block th:each = "destination : ${destinationList}">
             <div class = "form group">
             <label>
                 <input type="checkbox" name="destinationIds" th:value="${destination.id}" class = "form-controller">
@@ -16,6 +16,10 @@
             </label>
             </div>
         </th:block>
+
+<!--    <th:block th:each="destination : ${destinationList}">-->
+<!--        <li><a th:href="@{'/destination/?destinationId=' + ${destination.id}}" th:text="${destination.name}"></a></li>-->
+<!--    </th:block>-->
 
     <input type = "submit" value = "Delete" class = "btn btn-danger">
 </form>

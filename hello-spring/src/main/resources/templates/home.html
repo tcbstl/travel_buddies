@@ -32,7 +32,7 @@
 </table>
 <br>
 <!--<th:block th:each="destination : ${destinations}">-->
-    <a href="delete">Click here to delete a destination</a>
+<!--    <a href="delete">Click here to delete a destination</a>-->
 <!--</th:block>-->
 
 <h3> Where would you like to travel?</h3>
@@ -42,12 +42,22 @@
     <input type="submit" value="Submit">
 </form>
 
-<h4>To Confirm Your Added Location - Click Username Below:</h4>
+<h4>To VIEW EXISTING LOCATIONS - Click Username Below:</h4>
 
 <th:block th:each="user : ${users}">
     <li><a th:href="@{'/add-dto/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>
 </th:block>
 
+
+<br>
+
+<h4>To DELETE A USER - Click Username Below:</h4>
+
+<th:block th:each="user : ${users}">
+    <li><a th:href="@{'/deleteuser/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>
+</th:block>
+
+<br>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
