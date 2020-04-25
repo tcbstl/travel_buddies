@@ -13,13 +13,22 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
     private String username;
     private String password;
 
-    @ManyToMany
+//    @OneToOne(cascade = CascadeType.ALL)
+//    public Destination destination;
+
+
+    @ManyToMany(cascade ={
+        CascadeType.DETACH,
+                CascadeType.MERGE,
+                CascadeType.REFRESH,
+                CascadeType.PERSIST})
     public final Set<Destination> destinationList = new HashSet<Destination>();
 
     public void addDestination(Destination destination) {
@@ -48,8 +57,9 @@ public class User {
         return destinationList;
     }
 
-
-
+//    public Destination getDestination() {
+//        return destination;
+//    }
 //    public void addDestination(Destination destination){
 //        this.destinationList.add(destination);
 //    }

@@ -48,23 +48,35 @@ public class DeleteDestinationController {
     public String processDeleteDestinationForm(@RequestParam String destinationId, @RequestParam String userId, Model model) {
         int destinationToInt = Integer.parseInt(destinationId);
         int userToInt = Integer.parseInt(userId);
+        Optional<Destination> result = destinationRepository.findById(destinationToInt);
+        Destination destination = result.get();
+        Optional<User> result2 = userRepository.findById(userToInt);
+        User user = result2.get();
+        user.removeDestination(destination);
+//        destination.removeUser(user);
+//        user.getDestinationList().remove(destination);
+//        user.removeDestination();
+        destinationRepository.deleteById(destinationToInt);
+//        DestinationListRepository.deleteById(destinationToInt);
+//        user.getDestinationList().remove(destination);
+//        user.getDestinationList().remove(destination);
+//        UserDestinationDTO.delete()
+
 
 //        if (destinationIds != null) {
 //            for (int id : destinationIds) {
 //                destinationRepository.deleteById(id);
 //                EntityManager.em.re
 //                getEntityManager().remove(id);
-                Optional<Destination> result = destinationRepository.findById(destinationToInt);
-                Destination destination = result.get();
+
 //        UserPrincipal.removeDestination()
 //                UserService.removeDes
-                Optional<User> result2 = userRepository.findById(userToInt);
+
 //                User user = this.user;
-                User user = result2.get();
+
 //                destination.removeUser();
 //        user.removeDestination();
-                user.removeDestination(destination);
-                destination.removeUser(user);
+
 //                destination.remove
 //                user(destination);
 //                Destination destination = destinationRepository.findById(id);

@@ -1,9 +1,6 @@
 package com.tommybalestreri.hellospring.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -17,13 +14,20 @@ public class Destination {
 
     private String name;
 
+//    @OneToOne
+//    public User user;
+
 //    @ManyToMany(mappedBy = "destinationList")
 //    @Cascade(CascadeType.DELETE)
 //    private final List<User> userList = new ArrayList<>();
 
 //    @ManyToMany(mappedBy = "destinationList")
 //    @Cascade(CascadeType.DELETE)
-    @ManyToMany(mappedBy = "destinationList")
+    @ManyToMany(mappedBy = "destinationList", cascade ={
+        CascadeType.DETACH,
+                CascadeType.MERGE,
+                CascadeType.REFRESH,
+                CascadeType.PERSIST})
     public final Set<User> userList = new HashSet<User>();
 
     public Destination(String name) {
