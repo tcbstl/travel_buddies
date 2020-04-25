@@ -32,11 +32,12 @@ public class HomeController implements WebMvcConfigurer {
         model.addAttribute("destinationList", user.getDestinationList());
         model.addAttribute(new Destination());
         model.addAttribute("users",userRepository.findAll());
+//        model.addAttribute("destinations",destinationRepository.findAll());
         return "home";
     }
 
     @PostMapping("home")
-    public String addDestinationForm(@ModelAttribute User user, @ModelAttribute Destination newDestination, Model model) {
+    public String addDestinationForm(@RequestParam Integer userId, @ModelAttribute User user, @ModelAttribute Destination newDestination, Model model) {
         destinationRepository.save(newDestination);
         model.addAttribute("user", user);
         return "addeddestination";

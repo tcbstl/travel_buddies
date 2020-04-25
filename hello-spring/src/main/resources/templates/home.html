@@ -20,14 +20,10 @@
 </ul>
 
 <table>
-
     <tr>
-
         <th:block th:each="destination : ${destinationList}">
             <li><a th:href="@{'/destination/?destinationId=' + ${destination.id}}" th:text="${destination.name}"></a></li>
         </th:block>
-
-
     </tr>
 </table>
 <br>
@@ -58,6 +54,27 @@
 </th:block>
 
 <br>
+<h4>To DELETE A DESTINATION - Click Username Below:</h4>
+
+<!--<th:block th:each="user : ${users}">-->
+<!--    <li><a th:href="@{'/deletedestination/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>-->
+<!--</th:block>-->
+
+<tr>
+    <tr>
+        <tr th:each="destination : ${destinationList}">
+<!--            <th:each="user: ${users}"></th:each>-->
+    <div th:each="user: ${users}">
+            <li><a th:href="@{'/deletedestination/?destinationId=' + ${destination.id}+'?userId='+${user.id}}" th:text="${destination.name}"></a></li>
+        </div>
+    </tr>
+</tr>
+</table>
+
+
+
+<br>
+
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>

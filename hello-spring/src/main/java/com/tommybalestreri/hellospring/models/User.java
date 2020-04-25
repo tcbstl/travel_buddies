@@ -20,7 +20,18 @@ public class User {
     private String password;
 
     @ManyToMany
-    private final List<Destination> destinationList = new ArrayList<>();
+    public final List<Destination> destinationList = new ArrayList<>();
+
+    public void addDestination(Destination d) {
+        destinationList.add(d);
+        d.userList.add(this);
+    }
+
+    public void removeDestination(Destination d) {
+        destinationList.remove(d);
+        d.userList.remove(this);
+    }
+
 
     public String getUsername() {
         return username;
@@ -34,9 +45,9 @@ public class User {
         return destinationList;
     }
 
-    public void addDestination(Destination destination){
-        this.destinationList.add(destination);
-    }
+//    public void addDestination(Destination destination){
+//        this.destinationList.add(destination);
+//    }
 
     public int getId() {
         return id;

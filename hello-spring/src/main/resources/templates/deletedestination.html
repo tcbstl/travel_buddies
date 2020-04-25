@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>WARNING - THIS CANNOT BE UNDONE!!</h1>
+<h2>Select all locations and press button to confirm delete</h2>
+<form method = "post">
+
+    <th:block th:each = "destination : ${destinationList}">
+        <div class = "form group">
+            <label>
+                <input type="checkbox" name="destinationIds" th:value="${destination.id}" class = "form-controller">
+                <span th:text="${destination.name}"></span>
+            </label>
+        </div>
+    </th:block>
+
+    <!--    <th:block th:each="destination : ${destinationList}">-->
+    <!--        <li><a th:href="@{'/destination/?destinationId=' + ${destination.id}}" th:text="${destination.name}"></a></li>-->
+    <!--    </th:block>-->
+
+    <input type = "submit" value = "Confirm Delete - Cannot Be Undone" class = "btn btn-danger">
+</form>
+</body>
+</html>

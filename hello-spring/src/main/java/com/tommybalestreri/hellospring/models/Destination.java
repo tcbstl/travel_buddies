@@ -1,13 +1,12 @@
 package com.tommybalestreri.hellospring.models;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Destination {
@@ -22,10 +21,10 @@ public class Destination {
 //    @Cascade(CascadeType.DELETE)
 //    private final List<User> userList = new ArrayList<>();
 
+//    @ManyToMany(mappedBy = "destinationList")
+//    @Cascade(CascadeType.DELETE)
     @ManyToMany(mappedBy = "destinationList")
-    @Cascade(CascadeType.DELETE)
-    private final Set<User> userList = new HashSet<User>();
-
+    public final Set<User> userList = new HashSet<User>();
 
     public Destination(String name) {
         this.name = name;
@@ -36,6 +35,18 @@ public class Destination {
 //    public List<User> getUserList() {
 //        return userList;
 //    }
+
+    public void addUser(User u) {
+        userList.add(u);
+        u.destinationList.add(this);
+    }
+
+    public void removeUser(User u) {
+        userList.remove(u);
+        u.destinationList.remove(this);
+    }
+
+
 
 
     public Set<User> getUserList() {
