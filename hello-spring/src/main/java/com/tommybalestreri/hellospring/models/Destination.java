@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 public class Destination {
@@ -20,9 +18,14 @@ public class Destination {
 
     private String name;
 
+//    @ManyToMany(mappedBy = "destinationList")
+//    @Cascade(CascadeType.DELETE)
+//    private final List<User> userList = new ArrayList<>();
+
     @ManyToMany(mappedBy = "destinationList")
     @Cascade(CascadeType.DELETE)
-    private final List<User> userList = new ArrayList<>();
+    private final Set<User> userList = new HashSet<User>();
+
 
     public Destination(String name) {
         this.name = name;
@@ -30,7 +33,12 @@ public class Destination {
 
     public Destination() {}
 
-    public List<User> getUserList() {
+//    public List<User> getUserList() {
+//        return userList;
+//    }
+
+
+    public Set<User> getUserList() {
         return userList;
     }
 
