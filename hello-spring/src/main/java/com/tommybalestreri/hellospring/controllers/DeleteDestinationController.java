@@ -27,42 +27,51 @@ public class DeleteDestinationController {
 //        model.addAttribute("destinationList", user.getDestinationList());
 
     @GetMapping("deletedestination")
-    public String displayDeleteEventForm(@RequestParam Integer destinationId, @RequestParam Integer userId, Model model) {
+    public String displayDeleteEventForm(@RequestParam(name="destinationId") String destinationId, @RequestParam(name="userId") String userId, Model model) {
+        int destinationToInt = Integer.parseInt(destinationId);
+        int userToInt = Integer.parseInt(userId);
         model.addAttribute("title", "Delete Destinations");
         model.addAttribute("destinations", destinationRepository.findAll());
-        Optional<User> result2 = userRepository.findById(userId);
+        Optional<User> result2 = userRepository.findById(userToInt);
         User user = result2.get();
-        Optional<Destination> result = destinationRepository.findById(destinationId);
+        Optional<Destination> result = destinationRepository.findById(destinationToInt);
         Destination destination = result.get();
         model.addAttribute("destinationList", destination);
+        model.addAttribute("user",user);
 //        model.addAttribute("destinations", user.userDes)
 //        return "redirect:?userId=" + user.getId();
-        return "deletedestination?destinationId=" + destination.getId() + "userId=" +user.getId();
+//        return "deletedestination?destinationId=" + destination.getId() + "userId=" +user.getId();
+        return "deletedestination";
     }
 
     @PostMapping("deletedestination")
-    public String processDeleteDestinationForm(@RequestParam Integer destinationId, @RequestParam Integer userId, Model model) {
+    public String processDeleteDestinationForm(@RequestParam String destinationId, @RequestParam String userId, Model model) {
+        int destinationToInt = Integer.parseInt(destinationId);
+        int userToInt = Integer.parseInt(userId);
 
 //        if (destinationIds != null) {
 //            for (int id : destinationIds) {
 //                destinationRepository.deleteById(id);
 //                EntityManager.em.re
 //                getEntityManager().remove(id);
-                Optional<Destination> result = destinationRepository.findById(destinationId);
+                Optional<Destination> result = destinationRepository.findById(destinationToInt);
                 Destination destination = result.get();
 //        UserPrincipal.removeDestination()
 //                UserService.removeDes
-                Optional<User> result2 = userRepository.findById(userId);
+                Optional<User> result2 = userRepository.findById(userToInt);
 //                User user = this.user;
                 User user = result2.get();
 //                destination.removeUser();
 //        user.removeDestination();
                 user.removeDestination(destination);
+                destination.removeUser(user);
+//                destination.remove
 //                user(destination);
 //                Destination destination = destinationRepository.findById(id);
 //              User.     removeDestination(deleteDestination);
 
-
+//        model.addAttribute("destinationList", destination);
+//        model.addAttribute("user",user);
 
 
         return "destinationdeletesuccess";

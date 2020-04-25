@@ -36,18 +36,18 @@ public class Destination {
 //        return userList;
 //    }
 
-    public void addUser(User u) {
-        userList.add(u);
-        u.destinationList.add(this);
+    public void addUser(User user) {
+        this.userList.add(user);
+        user.getDestinationList().add(this);
     }
 
-    public void removeUser(User u) {
-        userList.remove(u);
-        u.destinationList.remove(this);
+    public void removeUser(User user) {
+        this.userList.remove(user);
+        user.getDestinationList().remove(this);
     }
 
 
-
+//em.persist()
 
     public Set<User> getUserList() {
         return userList;

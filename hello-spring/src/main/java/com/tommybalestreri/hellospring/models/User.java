@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -20,16 +20,16 @@ public class User {
     private String password;
 
     @ManyToMany
-    public final List<Destination> destinationList = new ArrayList<>();
+    public final Set<Destination> destinationList = new HashSet<Destination>();
 
-    public void addDestination(Destination d) {
-        destinationList.add(d);
-        d.userList.add(this);
+    public void addDestination(Destination destination) {
+        this.destinationList.add(destination);
+        destination.getUserList().add(this);
     }
 
-    public void removeDestination(Destination d) {
-        destinationList.remove(d);
-        d.userList.remove(this);
+    public void removeDestination(Destination destination) {
+        this.destinationList.remove(destination);
+        destination.getUserList().remove(this);
     }
 
 
@@ -41,9 +41,14 @@ public class User {
         return password;
     }
 
-    public List<Destination> getDestinationList() {
+//    public List<Destination> getDestinationList() {
+//        return destinationList;
+//    }
+    public Set<Destination> getDestinationList() {
         return destinationList;
     }
+
+
 
 //    public void addDestination(Destination destination){
 //        this.destinationList.add(destination);
