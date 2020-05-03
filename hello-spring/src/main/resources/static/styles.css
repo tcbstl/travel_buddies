@@ -1,0 +1,26 @@
+p {
+    color: pink;
+}
+
+.pink-header {
+    color: pink;
+}
+
+.header-style {
+    border-style: solid;
+    text-align: center;
+    font-family: 'Abril Fatface';
+}
+
+.login-form {
+    border-style:solid;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:20px;
+    padding-left:20px;
+}
+
+
+
+<i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i>
+
