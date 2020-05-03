@@ -13,8 +13,6 @@ public class UserDestinationDTO {
     @NotNull
     private Destination destination;
 
-
-
     public UserDestinationDTO() {}
 
     public User getUser() {

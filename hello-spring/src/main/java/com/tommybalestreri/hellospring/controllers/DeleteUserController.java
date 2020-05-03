@@ -21,10 +21,6 @@ public class DeleteUserController {
     @Autowired
     private UserRepository userRepository;
 
-//    Optional<User> result = userRepository.findById(userId);
-//    User user = result.get();
-//        model.addAttribute("destinationList", user.getDestinationList());
-
     @GetMapping("deleteuser")
     public String displayDeleteEventForm(@RequestParam Integer userId, Model model) {
         model.addAttribute("title", "Delete Destinations");
@@ -32,7 +28,6 @@ public class DeleteUserController {
         Optional<User> result = userRepository.findById(userId);
         User user = result.get();
         model.addAttribute("destinationList", user.getDestinationList());
-//        model.addAttribute("destinations", user.userDes)
         return "deleteuser";
     }
 
@@ -48,32 +43,5 @@ public class DeleteUserController {
 
         return "userdeletesuccess";
     }
-
-//    @GetMapping("delete")
-//    public String displayDeleteDestinationForm(Model model){
-//        model.addAttribute("title", "Delete Destination");
-//        model.addAttribute("destinations", destinationRepository.findAll());
-//        return "home/delete";
-//    }
-//
-//    @PostMapping("delete")
-//    public String processDeleteUserForm(@RequestParam(required = false) int[] userIds){
-//
-//        if (userIds != null) {
-//            for (int id : userIds) {
-//                userRepository.deleteById(id);
-//            }
-//        }
-//
-//        return "redirect:";
-//    }
-
-
-
-
-
-
-
-
 
 }

@@ -27,9 +27,6 @@
     </tr>
 </table>
 <br>
-<!--<th:block th:each="destination : ${destinations}">-->
-<!--    <a href="delete">Click here to delete a destination</a>-->
-<!--</th:block>-->
 
 <h3> Where would you like to travel?</h3>
 <form method="post" th:action="@{/home}">
@@ -44,7 +41,6 @@
     <li><a th:href="@{'/add-dto/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>
 </th:block>
 
-
 <br>
 
 <h4>To DELETE A USER - Click Username Below:</h4>
@@ -56,14 +52,9 @@
 <br>
 <h4>To DELETE A DESTINATION - Click Username Below:</h4>
 
-<!--<th:block th:each="user : ${users}">-->
-<!--    <li><a th:href="@{'/deletedestination/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>-->
-<!--</th:block>-->
-
 <tr>
     <tr>
         <tr th:each="destination : ${destinationList}">
-<!--            <th:each="user: ${users}"></th:each>-->
     <div th:each="user: ${users}">
             <li><a th:href="@{'/deletedestination?destinationId='+${destination.id}+'&userId='+${user.id}}" th:text="${destination.name}"></a></li>
         </div>
@@ -71,10 +62,7 @@
 </tr>
 </table>
 
-
-
 <br>
-
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>

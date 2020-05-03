@@ -32,7 +32,6 @@ public class HomeController implements WebMvcConfigurer {
         model.addAttribute("destinationList", user.getDestinationList());
         model.addAttribute(new Destination());
         model.addAttribute("users",userRepository.findAll());
-//        model.addAttribute("destinations",destinationRepository.findAll());
         return "home";
     }
 
@@ -42,25 +41,6 @@ public class HomeController implements WebMvcConfigurer {
         model.addAttribute("user", user);
         return "addeddestination";
     }
-
-//    @GetMapping("delete")
-//    public String displayDeleteDestinationForm(Model model){
-//        model.addAttribute("title", "Delete Destination");
-//        model.addAttribute("destinations", destinationRepository.findAll());
-//        return "home/delete";
-//    }
-//
-//    @PostMapping("delete")
-//    public String processDeleteUserForm(@RequestParam(required = false) int[] userIds){
-//
-//        if (userIds != null) {
-//            for (int id : userIds) {
-//                userRepository.deleteById(id);
-//            }
-//        }
-//
-//        return "redirect:";
-//    }
 
     @GetMapping("add-dto")
     public String displayAddDestinationAndUserForm(@RequestParam Integer userId, Model model) {
@@ -85,7 +65,5 @@ public class HomeController implements WebMvcConfigurer {
 
         return "redirect:?userId=" + user.getId();
     }
-
-
 
 }

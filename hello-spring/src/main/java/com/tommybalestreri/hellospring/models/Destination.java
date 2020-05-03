@@ -14,17 +14,8 @@ public class Destination {
 
     private String name;
 
-//    @OneToOne
-//    public User user;
-
-//    @ManyToMany(mappedBy = "destinationList")
-//    @Cascade(CascadeType.DELETE)
-//    private final List<User> userList = new ArrayList<>();
-
-//    @ManyToMany(mappedBy = "destinationList")
-//    @Cascade(CascadeType.DELETE)
     @ManyToMany(mappedBy = "destinationList", cascade ={
-        CascadeType.DETACH,
+                CascadeType.DETACH,
                 CascadeType.MERGE,
                 CascadeType.REFRESH,
                 CascadeType.PERSIST})
@@ -36,10 +27,6 @@ public class Destination {
 
     public Destination() {}
 
-//    public List<User> getUserList() {
-//        return userList;
-//    }
-
     public void addUser(User user) {
         this.userList.add(user);
         user.getDestinationList().add(this);
@@ -49,9 +36,6 @@ public class Destination {
         this.userList.remove(user);
         user.getDestinationList().remove(this);
     }
-
-
-//em.persist()
 
     public Set<User> getUserList() {
         return userList;

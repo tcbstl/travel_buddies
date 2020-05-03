@@ -20,10 +20,6 @@ public class User {
     private String username;
     private String password;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    public Destination destination;
-
-
     @ManyToMany(cascade ={
         CascadeType.DETACH,
                 CascadeType.MERGE,
@@ -50,19 +46,9 @@ public class User {
         return password;
     }
 
-//    public List<Destination> getDestinationList() {
-//        return destinationList;
-//    }
     public Set<Destination> getDestinationList() {
         return destinationList;
     }
-
-//    public Destination getDestination() {
-//        return destination;
-//    }
-//    public void addDestination(Destination destination){
-//        this.destinationList.add(destination);
-//    }
 
     public int getId() {
         return id;
@@ -71,7 +57,5 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
-
 
 }
