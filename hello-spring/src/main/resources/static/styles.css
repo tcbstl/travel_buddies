@@ -10,6 +10,7 @@ p {
     border-style: solid;
     text-align: center;
     font-family: 'Abril Fatface';
+    width:100%;
 }
 
 .login-form {
@@ -18,6 +19,7 @@ p {
     padding-bottom:20px;
     padding-right:20px;
     padding-left:20px;
+    text-align: center;
 }
 
 
