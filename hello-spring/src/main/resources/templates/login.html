@@ -13,10 +13,11 @@
 <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i>
     Welcome To Travel Buddies!
     <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i></h1>
-<h2>Please login below</h2>
-<div th:if="${param.error}">
-    Invalid username and password.
+<h2 class = "login-instructions">Please login below</h2>
+<div th:if="${param.error}" class = "error">
+    Invalid username and password. Please try again.
 </div>
+<br>
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
@@ -25,11 +26,11 @@
 <form th:action="@{/login}" method="post">
     <div><label> User Name : <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
+    <div><input type="submit" value="Sign In" class = "use-font"/></div>
 </form>
 
 <form th:action="@{/register}">
-    <div><input type="submit" value="Register"/></div>
+    <div><input type="submit" value="Register" class = "use-font"/></div>
 </form>
 
 </div>

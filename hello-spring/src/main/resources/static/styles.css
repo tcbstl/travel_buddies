@@ -13,6 +13,10 @@ p {
     width:100%;
 }
 
+.login-instructions {
+    font-family: 'Abril Fatface';
+}
+
 .login-form {
     border-style:solid;
     padding-top:20px;
@@ -20,8 +24,17 @@ p {
     padding-right:20px;
     padding-left:20px;
     text-align: center;
+    font-family: 'Abril Fatface';
 }
 
+.use-font{
+    font-family: 'Abril Fatface';
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}
 
 
 <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i>
