@@ -34,7 +34,8 @@
 <br>
 
 <h3> Where would you like to travel?</h3>
-<form method="post" th:action="@{/home}">
+<!--//NEED TO WORK ON THIS SECTION TO AVOID 404-->
+<form method="post" th:action="@{/home?userId=}">
     <label>Add A Desired Destination</label>
     <input th:field="${destination.name}">
     <input type="submit" value="Submit">
