@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +19,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
+
+    @NotBlank
+    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters.")
     private String username;
+
+    @NotBlank
+    @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters.")
     private String password;
 
     @ManyToMany(cascade ={
