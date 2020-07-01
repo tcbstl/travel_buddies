@@ -24,40 +24,19 @@ public class UserController {
 
     @GetMapping("register")
     public String register(Model model) {
+        model.addAttribute(new User());
         return "register";
     }
 
-//This works!
-//    @PostMapping(value="users/addNew")
-//    public RedirectView addNew(User user, RedirectAttributes redir) {
-//        userService.save(user);
-//        RedirectView redirectView= new RedirectView("/login", true);
-//            redir.addFlashAttribute("message", "Registration successful");
-//            return redirectView;
-//        }
-
-    //Trying something new
     @PostMapping(value="register")
     public String addNew(@ModelAttribute @Valid User user,
                                Errors errors, Model model) {
 
-//        if(errors.hasErrors()){
-//            RedirectView redirectView= new RedirectView("/register", true);
-//            redir.addFlashAttribute("message", "Registration unsuccessful");
-////            model.addAttribute("message", "Registration unsuccessful");
-//            return redirectView;
-//        }
-
         if(errors.hasErrors()){
-//            RedirectView redirectView= new RedirectView("/register", true);
-//            redir.addFlashAttribute("message", "Registration unsuccessful");
-            model.addAttribute("errorMsg", "Registration unsuccessful");
             return "register";
         }
 
         userService.save(user);
-//        RedirectView redirectView= new RedirectView("/login", true);
-//        redir.addFlashAttribute("message", "Registration successful");
         return "login";
     }
 

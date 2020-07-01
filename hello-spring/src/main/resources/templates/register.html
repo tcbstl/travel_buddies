@@ -15,23 +15,20 @@
     <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i></h1>
 
 <h2>Please register below</h2>
-<p th:text="${errorMsg}" style ="color:red;"></p>
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<!--This works-->
-<!--<form th:action="@{/users/addNew}" method="post">-->
-<!--    <div><label> User Name : <input type="text" name="username"/> </label></div>-->
-<!--    <div><label> Password: <input type="password" name="password"/> </label></div>-->
-<!--    <div><input type="submit" value="Register"/></div>-->
-<!--</form>-->
 
 <form th:action="@{/register}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><label> User Name : <input th:field="${user.username}"> </label>
+    <p class="error" th:errors="${user.username}"></p>
+    </div>
+    <div><label> Password: <input th:field="${user.password}"> </label>
+        <p class="error" th:errors="${user.password}"></p>
+    </div>
     <div><input type="submit" value="Register"/></div>
 </form>
 </body>
