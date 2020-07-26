@@ -4,16 +4,19 @@
 <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
 
 <head>
     <title>Travel Buddies - Meet Your Travel Buddy </title>
 </head>
-<body>
+<body class = "body-style">
 <h1 class = "header-style">
 <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i>
     Welcome To Travel Buddies!
     <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i></h1>
-<h2 class = "login-instructions">Please login below</h2>
+
+<h3 class = "header-style">Travel Buddies is an app that connects travelers with others who wish to visit the same destination. <br>Login or register below to find your own Travel Buddy!</h3>
+<!--<h2 class = "login-instructions">Please login below</h2>-->
 <div th:if="${param.error}" class = "error">
     Invalid username and password. Please try again.
 </div>

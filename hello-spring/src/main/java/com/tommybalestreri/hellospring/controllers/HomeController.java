@@ -8,10 +8,7 @@ import com.tommybalestreri.hellospring.models.dto.UserDestinationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Optional;
@@ -65,5 +62,15 @@ public class HomeController implements WebMvcConfigurer {
 
         return "redirect:?userId=" + user.getId();
     }
+
+//    @RequestMapping("/securedPage")
+//    public String securedPage(Model model,
+////                              @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient,
+////                              @AuthenticationPrincipal OAuth2User oauth2User) {
+////        model.addAttribute("userName", oauth2User.getName());
+////        model.addAttribute("clientName", authorizedClient.getClientRegistration().getClientName());
+////        model.addAttribute("userAttributes", oauth2User.getAttributes());
+////        return "securedPage";
+//    }
 
 }

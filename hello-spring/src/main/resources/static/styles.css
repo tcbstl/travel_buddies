@@ -9,12 +9,15 @@ p {
 .header-style {
     border-style: solid;
     text-align: center;
-    font-family: 'Abril Fatface';
+    font-family: 'ABeeZee';
     width:100%;
+    color: lightgray;
 }
 
 .login-instructions {
-    font-family: 'Abril Fatface';
+    font-family: 'ABeeZee';
+    text-align: center;
+    color: lightgray;
 }
 
 .login-form {
@@ -24,16 +27,23 @@ p {
     padding-right:20px;
     padding-left:20px;
     text-align: center;
-    font-family: 'Abril Fatface';
+    font-family: 'ABeeZee';
+    color: lightgray;
 }
 
 .use-font{
-    font-family: 'Abril Fatface';
+        font-family: 'ABeeZee';
 }
 
 .error{
     color: red;
     font-weight: bold;
+        font-family: 'ABeeZee';
+        text-align: center;
+}
+
+.body-style{
+    background-color: darkblue;
 }
 
 
