@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<!--xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">-->
+
 <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
@@ -17,9 +19,29 @@
 <h2>LOGIN SUCCESSFUL</h2>
 <h3>Select a user to see their destinations, or to add or remove destinations:</h3>
 
+<button type="submit">HEY!!!!!</button>
+<table>
+    <tr>
+        <td>
+            Username
+        </td>
+<!--        <td><span sec:authentication="principal.getUsername()"></span></td>-->
+<!--        <td><span sec:authentication="prin."</td>-->
+        <td><span sec:authentication="name"></span></td>
+        <td><span sec:authentication="principal.authorities"></span></td>
+<!--        <td><span sec:authentication="User.getUsername()"></span></td>-->
+    </tr>
+    <tr>
+    </tr>
+</table>
+
+<br>
+
 <th:block th:each="user : ${users}">
     <li><a th:href="@{'/?userId=' + ${user.id}}" th:text="${user.username}"></a></li>
 </th:block>
+
+
 
 </body>
 </html>
