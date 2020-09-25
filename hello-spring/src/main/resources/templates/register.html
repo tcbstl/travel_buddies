@@ -3,6 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
 
 <head>
     <title>Travel Buddies - Meet Your Travel Buddy - Register New User</title>
@@ -16,13 +17,13 @@
 <!--&lt;!&ndash;    </script>&ndash;&gt;-->
 
 </head>
-<body>
-<h1>
+<body class = "body-style">
+<h1 class = "header-style">
 <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i>
-    <i>Welcome To Travel Buddies!</i>
+    Welcome To Travel Buddies!
     <i class="em em-earth_americas" aria-role="presentation" aria-label="EARTH GLOBE AMERICAS"></i></h1>
 
-<h2>Please register below</h2>
+<h2 class = "header-style">Please register below</h2>
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
@@ -30,6 +31,7 @@
     You have been logged out.
 </div>
 
+<div class = "login-form">
 <form th:action="@{/register}" method="post" >
     <div><label> User Name : <input th:field="${user.username}" name="keywords"> </label>
     <p class="error" th:errors="${user.username}"></p>
@@ -37,8 +39,9 @@
     <div><label> Password: <input th:field="${user.password}"> </label>
         <p class="error" th:errors="${user.password}"></p>
     </div>
-    <div><input type="submit" value="Register"/></div>
+    <div><input type="submit" value="Register" class = "use-font"/></div>
 </form>
+</div>
 
 <!--<form id = "your_form" onsubmit="yourFunction()">-->
 <!--    <input type="text" name="keywords">-->
